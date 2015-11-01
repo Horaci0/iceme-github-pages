@@ -43,7 +43,7 @@
           </ul> -->
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="about.html">About us</a>
+              <a href="about.html">Contact</a>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Suivez-nous ! <span class="caret"></span></a>
@@ -61,28 +61,33 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-xs-6">
+        <div class="col-sm-6">
 
-          <div id="map"></div>
+          <div id="map" style="width: 100%; height: 400px;"></div>
 
-          <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js">
-          </script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
-          <script type="text/javascript">
-          var myOptions = {
-              zoom: 15,
-              center: new google.maps.LatLng(48.852937, 2.364178),
-              mapTypeId: google.maps.MapTypeId.ROADMAP,
-              styles: [{"featureType":"water","stylers":[{"color":"#46bcec"},{"visibility":"on"}]},{"featureType":"landscape","stylers":[{"color":"#f2f2f2"}]},{"featureType":"road","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"transit","stylers":[{"visibility":"off"}]},{"featureType":"poi","stylers":[{"visibility":"off"}]}]
-          };
+            <script type="text/javascript">
+              var myLatlng = new google.maps.LatLng(48.852937,2.364178);
 
-          var map = new google.maps.Map(document.getElementById('map'), myOptions);
+              var myOptions = {
+                  zoom: 14,
+                  center: myLatlng,
+                  mapTypeId: google.maps.MapTypeId.ROADMAP,
+                  styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
+              };
 
-          </script>
+              var map = new google.maps.Map(document.getElementById('map'), myOptions);
+              var marker = new google.maps.Marker({
+                  position: myLatlng,
+                  map: map,
+                  title: "You are here!"
+              });
+            </script>
+
 
         </div>
-        <div class="col-xs-6">
+        <div class="col-sm-6">
           <h1>About us</h1>
           <p><i class="fa fa-map-marker"></i> 25 rue du petit Musc 75004 Paris</p>
           <p><i class="fa fa-mobile-phone"></i> (+33)6 09 08 67 87</p>
